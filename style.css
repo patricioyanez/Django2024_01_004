@@ -1,0 +1,15 @@
+#titulo{
+    color: blue;
+}
+.formatoParrafo{
+    font-family: Verdana;
+    font-size: 20px;
+    font-weight: bold;
+}
+h1, p{
+    background-color: aqua;
+}
+*{
+    font-style: italic;
+}
+/* comentario */
