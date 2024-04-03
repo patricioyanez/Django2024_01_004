@@ -1,0 +1,42 @@
+body
+{
+    background-color: #1c1c1c;
+}
+.menu
+{
+    background-color: #1c1c1c;
+    position: absolute;
+    height: 100%;
+    color: white;
+    font-family: sans-serif;
+    padding-left: 20px;
+}
+section div{
+    width: 65%;
+    margin-top: -20px;
+    margin-left: 20%;
+    padding-right: 10%;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    color:white;
+}
+h1, p
+{
+    margin-left: 20%;
+}
+.div1
+{
+    background-color: aqua;
+}
+.div2
+{
+    background-color: yellow;
+}
+.div3
+{
+    background-color: orange;
+}
+.div4
+{
+    background-color: red;
+}
