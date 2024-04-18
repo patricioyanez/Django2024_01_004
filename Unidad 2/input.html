@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+</head>
+<body>
+    <h1>Input Disponibles</h1>
+    <h3>Texto</h3>
+    <input type="text" name="txtNombre">
+    <input type="text" name="txtApellido" maxlength="15">
+    <input type="text" placeholder="Ej: Vespucio 1501">
+    <input type="text" title="Ingrese dirección actual">
+    <input type="text" value="Pedro Pedro Pedro">
+    <input type="text" size="2">
+
+    <input type="text" readonly="readonly" value="5000">
+    <input type="text" disabled value="5000">
+
+    <h3>Numericos</h3>
+    <input type="number">
+    <input type="number" min="10" max="70" step="5">
+
+    <h3>Calendario y hora</h3>
+    <input type="datetime-local">
+    <input type="date">
+    <input type="time">
+    <input type="week">
+    <input type="month">
+
+    <h3>Otros</h3>
+    <input type="search">
+    <input type="password">
+    <input type="hidden">
+    <input type="color">
+<br>
+<br>
+<br>
+<form action="">
+    <input type="email">
+    <input type="url">
+    <input type="tel">
+    <input type="submit" value="Enviar Formulario">
+</form>
+
+    <h3>Subir archivos</h3>
+    <input type="file">
+    <input type="file" multiple>
+    <input type="file" accept=".pptx, .pdf, .docx">
+
+    <h3>Opciones</h3>
+    <h5>Series favoritas</h5>
+    <input type="checkbox" name="chkSerie" value="1">PeppaPig
+    <input type="checkbox" name="chkSerie" value="2">Blippy
+    <input type="checkbox" name="chkSerie" value="3">CocoMelon
+    <input type="checkbox" name="chkSerie" value="4">Gabby
+    <h5>Anime favorito</h5>
+    <input type="radio" name="rdoSerie" value="1">Robotech
+    <input type="radio" name="rdoSerie" value="2">One Piece
+    <input type="radio" name="rdoSerie" value="3">One Puch Man
+    <input type="radio" name="rdoSerie" value="4">Shingeki no kyojin
+
+    <h5>Comuna</h5>
+    <select name="cmbComuna">
+        <option value="0">Seleccionar</option>
+        <option value="1">Comuna 1</option>
+        <option value="2">Comuna 2</option>
+        <option value="3" selected>Comuna 3</option>
+    </select>
+
+</body>
+</html>
