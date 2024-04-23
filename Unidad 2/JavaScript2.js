@@ -1,33 +1,21 @@
-
-document.getElementById("txtNombre").value= "Anita";
-
+document.getElementById("txtNombre").value="Ana";
 
 function sumar()
 {
-    let numero1 = 1;
-    let numero2 = 500;
-    let resultado = numero1 + numero2;
-    alert("El resultado es :" + resultado);
+    let n1 = 10;
+    let n2 = 20;
+    let res = n1 + n2;
+    alert("El resultado es: " + res);
 }
-function sumar2(numero1, numero2)
+function sumar2(n1, n2) 
 {
-    let resultado = numero1 + numero2;
-    alert("El resultado es :" + resultado);
+    let res = n1 + n2;
+    alert("El resultado es: " + res);
 }
-
 function sumar3()
 {
-    let n = document.getElementById("txtNumero1").value;
-    let m = document.getElementById("txtNumero2").value;
-    alert("La suma es: " + (Number(n)+Number(m)))
-}
-function restar()
-{
-    let n = document.getElementById("txtNumero1").value;
-    let m = document.getElementById("txtNumero2").value;
-    alert("La suma es: " + (Number(n)-Number(m)))
-}
-
-window.onload = function (){
-    document.getElementById("txtApellido").value="Fernandez";
+    let n1 = document.getElementById("txtNumero1").value;
+    let n2 = document.getElementById("txtNumero2").value;
+    let res = Number(n1) + Number(n2);
+    alert("El resultado es: " + res);
 }
