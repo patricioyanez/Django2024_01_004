@@ -10,10 +10,18 @@
         $(function(){
             // escribir todo el codigo jquery aquí
             alert('Hola Mundo jQuery');
+            $('.btnEjecutar').click(function()
+            {
+                $('#titulo1').hide();
+                alert("El valor es: " + $('.numero').val())
+            })
         })
     </script>
 </head>
 <body>
-    
+    <h1 id="titulo1">Hola Mundo</h1>
+    <h2 class="titulo2">Buenos días, Buenas tardes</h2>
+    <input type="text" class="numero">
+    <button class="btnEjecutar">Ejecutar</button>
 </body>
 </html>
