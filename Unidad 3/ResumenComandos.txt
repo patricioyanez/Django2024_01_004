@@ -1,5 +1,5 @@
-mkdir Proyecto003
-cd Proyecto003
+mkdir Proyecto004
+cd Proyecto004
 python -m venv MiEntorno
 cd MiEntorno
 cd Scripts
@@ -15,5 +15,5 @@ py manage.py runserver (ir a la url para ver el cohete)
 (abrir otra terminal)
 cd instituto
 dir (confirmar si esta el archivo manage.py)
-py manage.py startapp alumno
+py manage.py startapp alumnos
 (configurar settings.py)
