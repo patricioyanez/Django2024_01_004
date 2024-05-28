@@ -39,4 +39,4 @@ class Alumno(models.Model):
     activo      = models.IntegerField()
 # crear el str -> rut y nombre completo
     def __str__(self):
-        return self.rut + "-" + self.dv + "  " + self.nombre + " " + self.apellido1 + " " + self.apellido2
+        return str(self.rut) + "-" + self.dv + "  " + self.nombre + " " + self.apellido1 + " " + self.apellido2
