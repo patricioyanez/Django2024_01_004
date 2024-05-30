@@ -9,9 +9,27 @@
     <h1>Listado</h1>
     {# comentarios #}
 
+    <table border="1">
+        <tr>
+            <th>Rut</th>
+            <th>Nombre Completo</th>
+            <th>Fecha Nacimiento</th>
+            <th>Email</th>
+            <th>Dirección</th>
+            <th>Activo</th>
+        </tr>
     {% for alumno in alumnos %}
-        {{ alumno.nombre }} <br>
+        <tr>
+            <td>{{ alumno.rut }}-{{ alumno.dv }}</td>
+            <td>{{ alumno.nombre| capfirst }}{{ alumno.apellido1| capfirst }}{{ alumno.apellido2| capfirst }}</td>
+            <td>{{ alumno.nacimiento }}</td>
+            <td>{{ alumno.email }}</td>
+            <td>{{ alumno.direccion }}</td>
+            <td>{{ alumno.activo |yesno:"Si,No" }}</td>
+
+        </tr>
     {% endfor %}
+    </table>
     {# Tarea: Agregar la lista de alumnos en una tabla (hmtl) todos sus datos  #}
     {#  todos los nombres tiene que estar capitalizado #}
     {# buscar mas instrucciones del lenguaje de plantilla de django #}
