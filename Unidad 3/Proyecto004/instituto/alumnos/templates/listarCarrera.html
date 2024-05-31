@@ -1,0 +1,29 @@
+{% extends 'plantillaBase.html' %}
+{% block tituloPestana %} Listad de Carreras {% endblock %}
+{% block tituloPagina %} Listado {% endblock %}
+{% block mensaje %}{% endblock %}
+{% block contenido %}{% endblock %}
+{% block listado %}
+<table class="table table-responsive table-striped">
+    <tr>
+        <th>id</th>
+        <th>Escuela</th>
+        <th>Nombre</th>
+        <th>Versión</th>
+        <th>Activo</th>
+        <th>Eliminar</th>
+        <th>Modificar</th>
+    </tr>
+{% for item in listado %}
+    <tr>
+        <td>{{ item.pk }}</td>
+        <td>{{ item.escuela.nombre }}</td>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.version }}</td>
+        <td>{{ item.activo |yesno:"Si,No" }}</td>
+        <td><a href="#">Eliminar</a></td>
+        <td><a href="{#% url 'buscarCarrera' pk=item.id %#}">Modificar</a></td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}

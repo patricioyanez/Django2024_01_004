@@ -1,0 +1,20 @@
+{% extends 'plantillaBase.html' %}
+{% block tituloPestana %} Listad de Escuela {% endblock %}
+{% block tituloPagina %} Listado {% endblock %}
+{% block mensaje %}{% endblock %}
+{% block contenido %}{% endblock %}
+{% block listado %}
+<table class="table table-responsive table-striped">
+    <tr>
+        <th>Nombre</th>
+        <th>Activo</th>
+    </tr>
+{% for item in listado %}
+    <tr>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.activo |yesno:"Si,No" }}</td>
+
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}
