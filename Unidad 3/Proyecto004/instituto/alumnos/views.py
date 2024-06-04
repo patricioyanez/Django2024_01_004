@@ -30,7 +30,11 @@ def listarCarrera(request):
     context = {'listado': listado}
     return render(request, 'listarCarrera.html', context)
 
-def GuardarCarrera(request):
+def guardarCarrera(request):
     escuelas = Escuela.objects.all()
     context = {'escuelas':escuelas}
-    return render(request, 'GuardarCarrera.html', context)
+    return render(request, 'guardarCarrera.html', context)
+
+def guardarEscuela(request):
+    context = {}
+    return render(request, 'guardarEscuela.html', context)

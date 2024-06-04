@@ -25,13 +25,10 @@
                   Administración
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Escuelas</a></li>
-                  <li><a class="dropdown-item" href="{% url 'GuardarCarrera'%}">Carrera</a></li>
-                  <li><a class="dropdown-item" href="#">Alumnos</a></li>
+                  <li><a class="dropdown-item" href="{% url 'listarCarrera' %}">Carreras</a></li>
+                  <li><a class="dropdown-item" href="{% url 'listarEscuela' %}">Escuelas</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="{% url 'listarAlumnos' %}">Listado de Alumnos</a></li>
-                  <li><a class="dropdown-item" href="{% url 'listarCarrera' %}">Listado de Carreras</a></li>
-                  <li><a class="dropdown-item" href="{% url 'listarEscuela' %}">Listado de Escuelas</a></li>
+                  <li><a class="dropdown-item" href="{% url 'listarAlumnos' %}">Alumnos</a></li>
                 </ul>
               </li>
               

@@ -1,33 +1,17 @@
 {% extends 'plantillaBase.html' %}
-{% block tituloPestana %} Guardar Carrera {% endblock %}
-{% block tituloPagina %} Carrera {% endblock %}
+{% block tituloPestana %} Guardar Escuela{% endblock %}
+{% block tituloPagina %} Escuela {% endblock %}
 {% block mensaje %}
 {% endblock %}
 {% block contenido %}
-<div class="row">
-    <div class="col-12 col-md-2 offset-md-3">Escuela</div>
-    <div class="col-12 col-md-5">
-        <select name="cmbEscuela" class="form-select">
-            <option value="0">Seleccionar</option>
-            {# for para agregar elementos #}
-            {% for item in escuelas %}
-                <option value="{{item.id}}">{{ item.nombre}}</option>
-            {% endfor%}
-        </select>
-    </div>
-</div>
+
 <div class="row mt-3">
     <div class="col-12 col-md-2 offset-md-3">Nombre</div>
     <div class="col-12 col-md-5">
         <input type="text" name="txtNombre" class="form-control">
     </div>
 </div>
-<div class="row mt-3">
-    <div class="col-12 col-md-2 offset-md-3">Versión</div>
-    <div class="col-12 col-md-5">
-        <input type="number" name="txtNombre" class="form-control">
-    </div>
-</div>
+
 <div class="row mt-3">
     <div class="col-12 col-md-2 offset-md-3">Activo</div>
     <div class="col-12 col-md-5">
