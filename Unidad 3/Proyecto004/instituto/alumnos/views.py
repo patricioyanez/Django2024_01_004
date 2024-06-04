@@ -8,7 +8,7 @@ def index(request):
     context = {}
     return render(request, 'index.html', context)
 
-def listarAlumnos(request):
+def listarAlumno(request):
     # utilizar ORM de Django
     # select * from alumno
     alumnos = Alumno.objects.all()
@@ -38,3 +38,19 @@ def guardarCarrera(request):
 def guardarEscuela(request):
     context = {}
     return render(request, 'guardarEscuela.html', context)
+
+
+def eliminarEscuela(request, pk):
+    context = {}
+    error = ''
+    exito = ''
+    try:
+        item = Escuela.objects.get(pk=pk)
+        item.delete()
+        exito = 'Escuela eliminada con éxito'
+    except:
+        error = 'Error al tratar de eliminar la información'
+        
+    listado = Escuela.objects.all()
+    context = {'listado': listado, 'exito':exito, 'error': error}
+    return render(request, 'listarEscuela.html', context)

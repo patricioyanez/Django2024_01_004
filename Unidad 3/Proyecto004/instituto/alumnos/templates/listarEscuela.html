@@ -1,18 +1,27 @@
 {% extends 'plantillaBase.html' %}
 {% block tituloPestana %} Listado de Escuela {% endblock %}
-{% block tituloPagina %} Listado {% endblock %}
-{% block mensaje %}{% endblock %}
-{% block contenido %}{% endblock %}
+{% block tituloPagina %} Escuelas {% endblock %}
+{% block mensaje %}
+
+{% endblock %}
+{% block contenido %}
+    <a href="{% url 'guardarEscuela' %}" class="btn btn-primary">Ingresar</a>
+    <br><br>
+{% endblock %}
 {% block listado %}
 <table class="table table-responsive table-striped">
     <tr>
         <th>Nombre</th>
         <th>Activo</th>
+        <th>Eliminar</th>
+        <th>Modificar</th>
     </tr>
 {% for item in listado %}
     <tr>
         <td>{{ item.nombre }}</td>
         <td>{{ item.activo |yesno:"Si,No" }}</td>
+        <td><a href="{% url 'eliminarEscuela' pk=item.id %}">Eliminar</a></td>
+        <td><a href="{#% url 'buscarEscuela' pk=item.id %#}">Modificar</a></td>
 
     </tr>
 {% endfor %}

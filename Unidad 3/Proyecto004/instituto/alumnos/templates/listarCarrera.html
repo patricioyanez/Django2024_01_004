@@ -1,8 +1,11 @@
 {% extends 'plantillaBase.html' %}
 {% block tituloPestana %} Listado de Carreras {% endblock %}
-{% block tituloPagina %} Listado {% endblock %}
+{% block tituloPagina %} Carreras {% endblock %}
 {% block mensaje %}{% endblock %}
-{% block contenido %}{% endblock %}
+{% block contenido %}
+<a href="{% url 'guardarCarrera' %}" class="btn btn-primary">Ingresar</a>
+<br><br>
+{% endblock %}
 {% block listado %}
 <table class="table table-responsive table-striped">
     <tr>
