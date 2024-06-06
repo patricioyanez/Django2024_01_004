@@ -11,4 +11,5 @@ urlpatterns = [
     path('guardarCarrera', views.guardarCarrera , name='guardarCarrera'),
     path('guardarEscuela', views.guardarEscuela , name='guardarEscuela'),
     path('eliminarEscuela/<str:pk>', views.eliminarEscuela , name='eliminarEscuela'),
+    path('eliminarCarrera/<str:pk>', views.eliminarCarrera , name='eliminarCarrera'),
 ]

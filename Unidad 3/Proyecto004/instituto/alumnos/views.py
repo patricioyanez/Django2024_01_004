@@ -49,18 +49,50 @@ def guardarEscuela(request):
 
     return render(request, 'guardarEscuela.html', context)
 
+def guardarCarrera(request):
+    context = {}
+    context['escuelas'] = Escuela.objects.all()
+
+    if request.method == 'POST':
+        idEscuela =  request.POST['cmbEscuela']
+        nombre = request.POST['txtNombre']
+        version = request.POST['txtVersion']
+        activo = 'chkActivo' in request.POST # v o F
+
+
+        if 'btnGuardar' in request.POST:
+            # TAREA: validar y capturar excepciones
+            escuela = Escuela.objects.get(pk= idEscuela) # buscar obj según id seleccionado
+            Carrera.objects.create(escuela= escuela,
+                                    nombre=nombre, 
+                                    version=version, 
+                                    activo=activo)
+
+            context['exito'] = "Los datos fueron guardados"
+    return render(request, 'guardarCarrera.html', context)
 
 def eliminarEscuela(request, pk):
     context = {}
-    error = ''
-    exito = ''
     try:
         item = Escuela.objects.get(pk=pk)
         item.delete()
-        exito = 'Escuela eliminada con éxito'
+        context['exito'] = 'Escuela eliminada con éxito'
     except:
-        error = 'Error al tratar de eliminar la información'
+        context['error'] = 'Error al tratar de eliminar la información'
         
     listado = Escuela.objects.all()
-    context = {'listado': listado, 'exito':exito, 'error': error}
+    context['listado'] = listado
     return render(request, 'listarEscuela.html', context)
+
+def eliminarCarrera(request, pk):
+    context = {}
+    try:
+        item = Carrera.objects.get(pk=pk)
+        item.delete()
+        context['exito'] = 'Carrera eliminada con éxito'
+    except:
+        context['error'] = 'Error al tratar de eliminar la información'
+        
+    listado = Carrera.objects.all()
+    context['listado'] = listado
+    return render(request, 'listarCarrera.html', context)

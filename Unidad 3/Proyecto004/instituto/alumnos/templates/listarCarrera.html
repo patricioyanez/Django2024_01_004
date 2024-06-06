@@ -1,7 +1,20 @@
 {% extends 'plantillaBase.html' %}
 {% block tituloPestana %} Listado de Carreras {% endblock %}
 {% block tituloPagina %} Carreras {% endblock %}
-{% block mensaje %}{% endblock %}
+{% block mensaje %}
+    {% if exito %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ exito }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    {% if error %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ error }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+{% endblock %}
 {% block contenido %}
 <a href="{% url 'guardarCarrera' %}" class="btn btn-primary">Ingresar</a>
 <br><br>
@@ -24,8 +37,8 @@
         <td>{{ item.nombre }}</td>
         <td>{{ item.version }}</td>
         <td>{{ item.activo |yesno:"Si,No" }}</td>
-        <td><a href="#">Eliminar</a></td>
-        <td><a href="{#% url 'buscarCarrera' pk=item.id %#}">Modificar</a></td>
+        <td><a href="{% url 'eliminarCarrera' pk=item.id %}" class="btn btn-danger">Eliminar</a></td>
+        <td><a href="{#% url 'buscarCarrera' pk=item.id %#}" class="btn btn-warning">Modificar</a></td>
     </tr>
 {% endfor %}
 </table>
