@@ -37,6 +37,16 @@ def guardarCarrera(request):
 
 def guardarEscuela(request):
     context = {}
+
+    if request.method == 'POST':
+        nombre = request.POST['txtNombre']
+        activo = 'chkActivo' in request.POST # v o F
+
+        if 'btnGuardar' in request.POST:
+            # validar...
+            Escuela.objects.create(nombre=nombre, activo=activo)
+            context['exito'] = "Los datos fueron guardados"
+
     return render(request, 'guardarEscuela.html', context)
 
 
