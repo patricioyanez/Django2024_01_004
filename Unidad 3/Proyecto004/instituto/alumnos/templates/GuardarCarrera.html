@@ -24,8 +24,8 @@
             <select name="cmbEscuela" class="form-select">
                 <option value="0">Seleccionar</option>
                 {# for para agregar elementos #}
-                {% for item in escuelas %}
-                    <option value="{{item.id}}">{{ item.nombre}}</option>
+                {% for objeto in escuelas %}
+                    <option value="{{objeto.id}}">{{ objeto.nombre}}</option>
                 {% endfor%}
             </select>
         </div>
@@ -62,4 +62,4 @@
 {% block listado %}
 {% endblock %}
 
-{# EJERCICIO: crear plantilla para guardar escuela y alumno #}
+{# TArea/EJERCICIO: crear plantilla para guardar escuela y alumno #}
