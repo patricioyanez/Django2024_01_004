@@ -39,13 +39,25 @@ def guardarEscuela(request):
     context = {}
 
     if request.method == 'POST':
+        id = request.POST['txtId']
         nombre = request.POST['txtNombre']
         activo = 'chkActivo' in request.POST # v o F
 
         if 'btnGuardar' in request.POST:
             # validar...
-            Escuela.objects.create(nombre=nombre, activo=activo)
-            context['exito'] = "Los datos fueron guardados"
+            if len(nombre.strip()) < 1:
+                context['error'] = 'No especificó el nombre'
+            else:
+                if id == "0":
+                    Escuela.objects.create(nombre=nombre, activo=activo)
+                else:
+                    item = Escuela()
+                    item.id = id
+                    item.nombre = nombre
+                    item.activo = activo
+                    item.save()
+
+                context['exito'] = "Los datos fueron guardados"
 
     return render(request, 'guardarEscuela.html', context)
 
@@ -96,3 +108,13 @@ def eliminarCarrera(request, pk):
     listado = Carrera.objects.all()
     context['listado'] = listado
     return render(request, 'listarCarrera.html', context)
+
+def buscarEscuela(request, pk):
+    context = {}
+    try:
+        context['item'] = Escuela.objects.get(pk=pk)
+    except:
+        context['error'] = 'Error al buscar información'
+
+    return render(request, 'guardarEscuela.html', context)
+        
