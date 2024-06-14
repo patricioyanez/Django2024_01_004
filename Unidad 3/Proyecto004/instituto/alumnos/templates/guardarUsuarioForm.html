@@ -1,0 +1,44 @@
+{% extends 'plantillaBase.html' %}
+{% block tituloPestana %} Usuario {% endblock %}
+{% block tituloPagina %} Usuario {% endblock %}
+{% block mensaje %}
+    {% if exito %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ exito }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+    {% if error %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ error }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+{% endblock %}
+{% block contenido %}
+<form action="{% url 'guardarEscuela' %}" method="post">
+    {% csrf_token %}
+    <div class="row mt-3">
+        <div class="col-12 col-md-6 offset-md-3">
+            <table class="table table-responsive">
+                {{form.as_table}}
+            </table>
+        </div>
+    </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 col-md-2 offset-md-3">Opciones</div>
+        <div class="col-12 col-md-5">
+            <input type="submit" name="btnGuardar" value="Guardar" class="btn btn-danger float-end">
+            <input type="submit" name="btnLimpiar" value="Limpiar" class="btn btn-outline-secondary float-end mx-2">
+            <a href="{% url 'listarEscuela' %}" class="btn btn-warning float-end">Listar</a>
+        </div>
+
+    </div>
+</form>
+{% endblock %}
+{% block listado %}
+{% endblock %}
+
+{# EJERCICIO: agregar modificar para carrera #}
