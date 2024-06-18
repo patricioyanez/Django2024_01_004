@@ -32,9 +32,9 @@ class UsuarioForm(ModelForm):
             'foto' : forms.ClearableFileInput(attrs={
                 'class': 'form-control'
             }),
-            'activo' : forms.CheckboxInput(attrs={
-                'class' : 'form-check-input', 
-                'value' : '1'
+            'activo' : forms.TextInput(attrs={
+                'class' : 'form-control', 
+                
             })
         }
 

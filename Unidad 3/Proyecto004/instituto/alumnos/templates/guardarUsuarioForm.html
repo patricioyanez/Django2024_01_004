@@ -17,7 +17,7 @@
 
 {% endblock %}
 {% block contenido %}
-<form action="{% url 'guardarEscuela' %}" method="post">
+<form action="{% url 'guardarUsuario' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="row mt-3">
         <div class="col-12 col-md-6 offset-md-3">
@@ -38,6 +38,32 @@
 </form>
 {% endblock %}
 {% block listado %}
+<hr>
+    <div class="row mt-5">
+        <div class="col-12">
+            <table class="table table-responsive">
+                <tr>
+                    <th>imagen</th>
+                    <th>Email</th>
+                    <th>Nombre</th>
+                    <th>1er Apellido</th>
+                    <th>2do Apellido</th>
+
+                </tr>
+    {% for usuario in listado %}
+                <tr>
+                    <td><img src="/media/{{usuario.foto}}" alt="no disponible" width="100px" height="100px"></td>
+                    <td>{{usuario.email}}</td>
+                    <td>{{usuario.nombre}}</td>
+                    <td>{{usuario.apellido1}}</td>
+                    <td>{{usuario.apellido2}}</td>
+                </tr>
+    {% endfor %}
+            </table>
+        </div>
+    </div>
+
+
 {% endblock %}
 
 {# EJERCICIO: agregar modificar para carrera #}

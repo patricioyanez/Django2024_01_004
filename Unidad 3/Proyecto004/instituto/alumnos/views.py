@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from alumnos.forms import UsuarioForm
-from .models import Alumno,Escuela,Carrera
+from .models import Alumno,Escuela,Carrera, Usuario
 # Create your views here.
 def menu(request):
     context = {}
@@ -82,6 +82,18 @@ def guardarCarrera(request):
 
 def guardarUsuario(request):
     context = {'form': UsuarioForm()}
+
+    if request.method == 'POST':
+        if 'btnGuardar' in request.POST:
+            form = UsuarioForm(request.POST, request.FILES)
+
+            if form.is_valid():
+                form.save()
+                context['exito'] = 'Datos Guardados'
+            else:
+                context['error'] = 'Error al guardar los datos'
+                
+    context['listado'] = Usuario.objects.all()
     return render(request, 'guardarUsuarioForm.html', context)
 
 def eliminarEscuela(request, pk):
