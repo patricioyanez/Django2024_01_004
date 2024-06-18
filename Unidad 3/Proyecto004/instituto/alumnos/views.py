@@ -122,6 +122,20 @@ def eliminarCarrera(request, pk):
     context['listado'] = listado
     return render(request, 'listarCarrera.html', context)
 
+def eliminarUsuario(request, pk):
+    context = {}
+    try:
+        item = Usuario.objects.get(pk=pk)
+        item.delete()
+        context['exito'] = 'El item fue eliminado con éxito'
+    except:
+        context['error'] = 'Error al tratar de eliminar la información'
+        
+    context['listado'] = Usuario.objects.all()
+    context['form'] = UsuarioForm()
+    return render(request, 'guardarUsuarioForm.html', context)
+
+
 def buscarEscuela(request, pk):
     context = {}
     try:
