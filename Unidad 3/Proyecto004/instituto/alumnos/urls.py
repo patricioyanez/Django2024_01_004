@@ -4,6 +4,7 @@ from . import views
 #http://127.0.0.1:8000/alumnos/index
 urlpatterns = [
     path('', views.menu , name='menu'),
+    path('menu', views.menu , name='menu'),
     path('index', views.index , name='index'),
     path('listarAlumno', views.listarAlumno , name='listarAlumno'),
     path('listarEscuela', views.listarEscuela , name='listarEscuela'),

@@ -1,0 +1,18 @@
+{% extends 'plantillaBase.html' %}
+{% block tituloPestana %} Login {% endblock %}
+{% block tituloPrincipal %} Login {% endblock %}
+{% block mensaje    %}   {% endblock %}
+{% block contenido  %}
+{# se utiliza el auth de django #}
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <center>
+            <table>
+                {{ form.as_table }}
+            </table>
+            <br><br>
+            <input type="submit" value="Aceptar" class="btn btn-primary">
+        </center>
+    </form>
+{% endblock %}
+{% block listado %} {% endblock %}
