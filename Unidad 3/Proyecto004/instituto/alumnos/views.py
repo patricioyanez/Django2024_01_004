@@ -2,14 +2,19 @@ from django.shortcuts import render
 
 from alumnos.forms import UsuarioForm
 from .models import Alumno,Escuela,Carrera, Usuario
+
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
+@login_required
 def menu(request):
     context = {}
     return render(request, 'plantillaBase.html', context)
+
 def index(request):
     context = {}
     return render(request, 'index.html', context)
-
+@login_required
 def listarAlumno(request):
     # utilizar ORM de Django
     # select * from alumno
@@ -17,21 +22,21 @@ def listarAlumno(request):
     context = {'alumnos': alumnos}
     return render(request, 'listarAlumno.html', context)
 
-
+@login_required
 def listarEscuela(request):
     # utilizar ORM de Django
     # select * from alumno
     listado = Escuela.objects.all()
     context = {'listado': listado}
     return render(request, 'listarEscuela.html', context)
-
+@login_required
 def listarCarrera(request):
     # utilizar ORM de Django
     # select * from alumno
     listado = Carrera.objects.all()
     context = {'listado': listado}
     return render(request, 'listarCarrera.html', context)
-
+@login_required
 def guardarEscuela(request):
     context = {}
 
@@ -57,7 +62,7 @@ def guardarEscuela(request):
                 context['exito'] = "Los datos fueron guardados"
 
     return render(request, 'guardarEscuela.html', context)
-
+@login_required
 def guardarCarrera(request):
     context = {}
     context['escuelas'] = Escuela.objects.all()
@@ -79,7 +84,7 @@ def guardarCarrera(request):
 
             context['exito'] = "Los datos fueron guardados"
     return render(request, 'guardarCarrera.html', context)
-
+@login_required
 def guardarUsuario(request):
     context = {'form': UsuarioForm()}
 
@@ -95,7 +100,7 @@ def guardarUsuario(request):
                 
     context['listado'] = Usuario.objects.all()
     return render(request, 'guardarUsuarioForm.html', context)
-
+@login_required
 def eliminarEscuela(request, pk):
     context = {}
     try:
@@ -108,7 +113,7 @@ def eliminarEscuela(request, pk):
     listado = Escuela.objects.all()
     context['listado'] = listado
     return render(request, 'listarEscuela.html', context)
-
+@login_required
 def eliminarCarrera(request, pk):
     context = {}
     try:
@@ -121,7 +126,7 @@ def eliminarCarrera(request, pk):
     listado = Carrera.objects.all()
     context['listado'] = listado
     return render(request, 'listarCarrera.html', context)
-
+@login_required
 def eliminarUsuario(request, pk):
     context = {}
     try:
@@ -135,7 +140,7 @@ def eliminarUsuario(request, pk):
     context['form'] = UsuarioForm()
     return render(request, 'guardarUsuarioForm.html', context)
 
-
+@login_required
 def buscarEscuela(request, pk):
     context = {}
     try:
